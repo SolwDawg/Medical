@@ -37,6 +37,7 @@ class CartItem(db.Model):
     cart_id = db.Column(db.Integer, db.ForeignKey('cart.cart_id'), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('products.product_id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False, default=1)
+    product = db.relationship('Product', backref='cart_items') 
 
 class Order(db.Model):
     __tablename__ = 'orders'  # Thêm __tablename__
